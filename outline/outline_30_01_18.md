@@ -1,6 +1,6 @@
 # Topic
-I'm visualizing... sports feats
-because I want to show... the extent of physical abilities
+I'm visualizing... sports feats...
+because I want to show... the extent of physical abilities...
 in order to ... convince people to celebrate human athletic accomplishments
 
 
@@ -28,11 +28,11 @@ even those who practice those sports.
 ### Defining each sport
 1. What are the rules that define each sport?
 2. How have those definitions evolved and/or become codified over time?
-3. Examples of sports that have undergone specific moments in their definitions, e.g., 2009 changes to rules in swimming materials and design
+3. Examples of sports that have undergone specific changes in their definitions, e.g., 2009 changes to rules in swimming materials and design
 
 ### Doping in sports
 1. What is the cost of doping to the sport itself through reputation?
-2. What are examples where a doped athlete cost another athlete a model?
+2. What are examples where a doped athlete cost another athlete a medal?
 3. What are the costs in endorsements etc to losing athlete?
 4. What are the reasons given for data suggesting doping offense?... cheating, medication, physiological
 5. Why are some doping offenses tolerated? e.g., in track and field, athletes often come back after ban
@@ -69,10 +69,14 @@ Betting data: TBD
 
 
 ## 4. AUDIENCE(S)
+
 Reader: Sports enthusiasts and general interest readers
+
 How: Read as a news story with numbers and data in order to celebrate human accomplishment, not activism or to incite action
+
 Ask of audience: Possibly interactive in the sense that readers will be able to place themselves and their own abilities into context
-Aim: Reader learns how astounding these records are by providing examples that (sprinting; long jump >29 feet; speed of marathon runner carried for over 2 hours)
+
+Aim: Reader learns how astounding these records are by providing examples (sprinting; long jump >29 feet; speed of marathon runner carried for over 2 hours)
 
 
 ### Bibliography
