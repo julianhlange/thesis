@@ -50,7 +50,7 @@ Advances in swimsuits
 ### Analysis of specific sports events
 
 Miniscule differences at top.
-Distribution on distributions in differences between 1st and 2nd or 1st and rest.
+Distribution of distribution in differences between 1st and 2nd or 1st and rest.
 Look at different sporting events.
 
 
