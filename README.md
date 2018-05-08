@@ -1,7 +1,20 @@
-# Outline of Edge
+# 
 
 
 ## Abstract
+The Winter and Summer Olympic Games are quadrennial sporting events that bring together
+the world’s most elite athletes. While the differences in endorsement and other financial
+opportunities available to gold medal winners and fourth place finishers are massive,
+the differences in athletic performances are vanishingly small. Because the margins are so
+small, athletes and their national sports federations are continuously acquiring different
+sources of edge, from advances in training methods, nutrition, and equipment to illicit
+performance enhancing substances. Some of the allowed sources of edge have the effect of
+changing the parameters of a sport and resulting in world records. This thesis aims to
+demonstrate, by sport, how small the differences between the very top athletes and the
+rest of field are. In examining a wide range of Winter and Summer Olympic sports, including
+skiing, luge, swimming, and track, I find sport-specific ranges from 0.1% to 0.5%. These
+findings are discussed in the context of examples from Olympic and World Championships events.
+
 
 ## Introduction
 
