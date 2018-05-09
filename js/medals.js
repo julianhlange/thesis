@@ -39,8 +39,9 @@ var olympicsSVG;
 
 $(document).ready(function() {
     initialMenu();
-    selectedSport = "Alpine";
-    selectedEvent = "men Downhill";
+    selectedSport = $('#selectSport').val();
+    selectedEvent = $('#selectEvent').val();
+    $('input[name="radio1"]').prop('checked', false);
     $('input[name="radio2"]').prop('checked', false);
     // allBut = $("input[type='radio'][name='mode1']:checked").val()
     // percentFaster = $("input[type='radio'][name='mode2']:checked").val()
@@ -101,8 +102,8 @@ function initialMenu() {
 function drawGraph() {
 
     // set the dimensions and margins of the graph
-    var margin = { top: 100, right: 100, bottom: 125, left: 250 },
-        width = 1100 - margin.left - margin.right,
+    var margin = { top: 100, right: 250, bottom: 125, left: 250 },
+        width = 1200 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
     var colors = ['#daa520', '#999999', '#a0522d', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff'];
@@ -116,12 +117,13 @@ function drawGraph() {
         .domain([1, 2, 3, 4, 5, 6, 7, 8])
         .range(colors);
 
-    d3.selectAll("svg").remove();
+    d3.select(".medalSVGclass").remove();
 
     // append the svg object to the body of the page
     // append a 'group' element to 'svg'
     // moves the 'group' element to the top left margin
     olympicsSVG = d3.select("#olympicsSketch").append("svg")
+        .attr("class", "medalSVGclass")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
@@ -139,7 +141,7 @@ function drawGraph() {
         .style("opacity", 0);
 
     // get the data
-    d3.csv("medalsData.csv", function(error, data) {
+    d3.csv("data/medalsData.csv", function(error, data) {
         if (error) throw error;
 
         // format the data
@@ -242,7 +244,7 @@ function drawGraph() {
         // label for the x-axis
         olympicsSVG.append("text")
             .attr("x", width / 2)
-            .attr("y", height + 0.5 * margin.bottom)
+            .attr("y", height + 0.4 * margin.bottom)
             .attr("class", "chartLabel")
             .style("text-anchor", "middle")
             .text("Performance (%)");
@@ -258,44 +260,22 @@ function drawGraph() {
             
         // text below graph to describe data source
         olympicsSVG.append("text")
-            .attr("x", -margin.left/2)
-            .attr("y", height + margin.bottom - 20)
+            .attr("x", 0)
+            .attr("y", height + margin.bottom - 30)
             .attr("class", "chartData")
             .style("text-anchor", "start")
-            .text("Data are from the International Olympic Committee (IOC). The top 8 finishers for each event are shown. The gold medalist's performance is set at 100%. All other finishers' performances — actual or after")
+            .text("Data are from the International Olympic Committee (IOC). The top 8 finishers for each event are shown. The actual gold medalist's performance is")
         
         olympicsSVG.append("text")
-            .attr("x", -margin.left/2)
-            .attr("y", height + margin.bottom - 5)
+            .attr("x", 0)
+            .attr("y", height + margin.bottom - 15)
             .attr("class", "chartData")
             .style("text-anchor", "start")
-            .text("hypothetical improvements — are calculated relative to the actual winning time. In essence, data were transformed to relative speed, then performances under hypothetical scenarios were determined.");
+            .text("set to 100%. All other finishers' performances — actual or after hypothetical improvements — are calculated relative to the actual winning time.");
         
-        // line and note for why x-axis goes beyond 100%
-        // var Mx = width - margin.right - 20
-        // var My = height/2 + 120
-        // var C1x = width - margin.right - 18
-        // var C1y = height/2 + 115
-        // var C2x = width - margin.right - 22
-        // var C2y = height/2 + 110
-        // var C3x = width - margin.right - 25
-        // var C3y = height/2 + 100
-        // var S1x = width - margin.right - 15
-        // var S1y = height/2 + 102
-        // var S2x = width - margin.right - 10
-        // var S2y = height/2 + 10
-        
-        // var squiggle = "M " + Mx + " " + My + " C " + C1x + " " + C1y + ", " + C2x + " " + C2y + ", " + C3x + " " + C3y + " S " + S1x + " " + S1y + ", " + S2x + " " + S2y;
-        
-        // var noteLine = svg.append("path")
-        //     .attr("d", squiggle)
-        //     .attr("fill", "transparent")
-        //     .attr("stroke", "gray")
-        //     .attr("stroke-width", 1)
-        
-        var x1 = width - margin.right - 20
+        var x1 = width - 50
         var y1 = height/2 + 100 + 30
-        var x2 = width - margin.right - 8
+        var x2 = width - 50 + 12
         var y2 = height/2 + 100
         var noteLineCoordinates = x1 + ", " + y1 + " " + x1 + ", " + y2 + " " + x2 + ", " + y2;
         
@@ -306,13 +286,13 @@ function drawGraph() {
         
         var noteText1 = olympicsSVG.append("text")
             .attr("class", "chartData")
-            .attr("x", width - margin.right)
+            .attr("x", width - 30)
             .attr("y", height/2 + 100)
             .text("The x-axis extends beyond 100% to")
         
         var noteText2 = olympicsSVG.append("text")
             .attr("class", "chartData")
-            .attr("x", width - margin.right)
+            .attr("x", width - 30)
             .attr("y", height/2 + 115)
             .text("accommodate hypothetical scenarios.")
             
@@ -377,6 +357,8 @@ function drawGraph() {
 
 
         function actual() {
+            
+            $('input[name="radio2"]').prop('checked', false);   // unchecks any percent faster radio button
 
             lin.transition()
                 .duration(1750)

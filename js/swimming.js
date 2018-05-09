@@ -25,8 +25,8 @@ $('#selectSwimDistance').change(function() {
 function drawSwimGraph() {
 
     // set the dimensions and margins of the graph
-    var margin = { top: 100, right: 400, bottom: 100, left: 400 },
-        width = 1600 - margin.left - margin.right,
+    var margin = { top: 100, right: 340, bottom: 100, left: 340 },
+        width = 1380 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
     var colors = ['#225EA8', '#41B6C4', '#253494', '#8DC6A0'];
@@ -58,12 +58,13 @@ function drawSwimGraph() {
         .domain(["free", "fly", "back", "breast"])
         .range(strokes);
 
-    d3.selectAll("svg").remove();
+    d3.select(".swimSVGclass").remove();
 
     // append the svg object to the body of the page
     // append a 'group' element to 'svg'
     // moves the 'group' element to the top left margin
     swimSVG = d3.select("#swimSketch").append("svg")
+        .attr("class", "swimSVGclass")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
@@ -76,7 +77,7 @@ function drawSwimGraph() {
         .style("opacity", 0);
 
     // get the data
-    d3.csv("swimmingData.csv", function(error, data) {
+    d3.csv("data/swimmingData.csv", function(error, data) {
         if (error) throw error;
 
         // pulls out all 256 swim times for selected gender and distance
@@ -281,22 +282,22 @@ function drawSwimGraph() {
 
         // overall label for the y-axis
         swimSVG.append("text")
-            .attr("x", -20)
+            .attr("x", -11)
             .attr("y", -0.3 * margin.top)
             .attr("class", "chartLabel")
-            .style("text-anchor", "middle")
-            .text("World Championships");
+            .style("text-anchor", "end")
+            .text("Year");
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////        
 
         // text below graph to describe data source
 
         swimSVG.append("text")
-            .attr("x", width / 2)
+            .attr("x", 0)
             .attr("y", height + margin.bottom - 10)
             .attr("class", "chartKey")
-            .style("text-anchor", "middle")
-            .text("Data are from the Fédération Internationale de Natation (FINA). The swim times of each event final are displayed. Disqualified athletes in two events are not shown.");
+            .style("text-anchor", "start")
+            .text("Data are from the Fédération Internationale de Natation (FINA). Swim times in each event final are displayed. Disqualified athletes are not shown.");
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -308,6 +309,17 @@ function drawSwimGraph() {
         var pos = 280
         var keyCircles = [width / factor * 1.07 + pos, width / factor * 1.1 + pos, width / factor * 1.115 + pos, width / factor * 1.16 + pos, width / factor * 1.215 + pos, width / factor * 1.22 + pos, width / factor * 1.23 + pos, width / factor * 1.27 + pos]
         var keyCircleMedian = width / factor * 1.1725 + pos
+
+        var x1 = 1.03 * (width / factor + pos)
+        var y1 = keyHeight - 12
+        var x2 = 0.98 * (width / factor + width / 6 + pos)
+        var y2 = keyHeight - 20
+        var keyLineCoordinates = x1 + ", " + y1 + " " + x1 + ", " + y2 + " " + x2 + ", " + y2 + " " + x2 + ", " + y1;
+        
+        var noteLine = swimSVG.append("polyline")
+            .attr("class", "lineKey")
+            .attr("points", keyLineCoordinates)
+            .attr("fill", "none");
 
         swimSVG.append("line")
             .attr("x1", width / factor + pos)
@@ -326,27 +338,6 @@ function drawSwimGraph() {
             .attr("stroke-width", 20)
             .attr("stroke-linecap", "round")
             .style("stroke", "gray");
-
-        swimSVG.append("line")
-            .attr("class", "lineKey")
-            .attr("x1", 1.03 * (width / factor + pos))
-            .attr("y1", keyHeight - 20)
-            .attr("x2", 0.98 * (width / factor + width / 6 + pos))
-            .attr("y2", keyHeight - 20)
-
-        swimSVG.append("line")
-            .attr("class", "lineKey")
-            .attr("x1", 1.03 * (width / factor + pos))
-            .attr("y1", keyHeight - 20)
-            .attr("x2", 1.03 * (width / factor + pos))
-            .attr("y2", keyHeight - 12)
-
-        swimSVG.append("line")
-            .attr("class", "lineKey")
-            .attr("x1", 0.98 * (width / factor + width / 6 + pos))
-            .attr("y1", keyHeight - 20)
-            .attr("x2", 0.98 * (width / factor + width / 6 + pos))
-            .attr("y2", keyHeight - 12)
 
         swimSVG.selectAll(".keyCircle")
             .data(keyCircles)
@@ -409,7 +400,7 @@ function drawSwimGraph() {
 
         imgs.enter()
             .append("svg:image")
-            .attr("xlink:href", "swimsuit.png")
+            .attr("xlink:href", "assets/swimsuit.png")
             .attr("x", "-120")
             .attr("y", "20")
             .attr("width", "50")
@@ -417,7 +408,7 @@ function drawSwimGraph() {
 
         imgs.enter()
             .append("svg:image")
-            .attr("xlink:href", "swimsuit.png")
+            .attr("xlink:href", "assets/swimsuit.png")
             .attr("x", "-120")
             .attr("y", "60")
             .attr("width", "50")
@@ -425,7 +416,7 @@ function drawSwimGraph() {
 
         imgs.enter()
             .append("svg:image")
-            .attr("xlink:href", "swimsuit.png")
+            .attr("xlink:href", "assets/swimsuit.png")
             .attr("x", "-120")
             .attr("y", "100")
             .attr("width", "50")
@@ -444,27 +435,27 @@ function drawSwimGraph() {
             .append('svg:tspan')
             .attr('x', width + 50)
             .attr('dy', 20)
-            .text("a moderate rate.")
+            .text("a moderate rates.")
             .append('svg:tspan')
             .attr('x', width + 50)
             .attr('dy', 55)
-            .text("In 2009, some athletes wear full-body polyurethane")
+            .text("In 2009, some athletes wear full-body suits made")
             .append('svg:tspan')
             .attr('x', width + 50)
             .attr('dy', 20)
-            .text("suits. Swim times improve dramatically.")
+            .text("of polyurethane. Swim times improve dramatically.")
             .append('svg:tspan')
             .attr('x', width + 50)
             .attr('dy', 50)
-            .text("In 2011, after full-body suits and non-textile materials")
+            .text("In 2011, after non-textile materials and full-body")
             .append('svg:tspan')
             .attr('x', width + 50)
             .attr('dy', 20)
-            .text("are banned, swim times are dramatically slower. After")
+            .text("suits are banned, swim times are slower. Rates")
             .append('svg:tspan')
             .attr('x', width + 50)
             .attr('dy', 20)
-            .text("2011, rates of improvement return to normal.");
+            .text("of improvement return to normal.");
 
 
         var explXstart = width + 20
