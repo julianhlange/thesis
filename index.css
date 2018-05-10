@@ -53,21 +53,21 @@ body {
 }
 
 #photoFinish {
-      -webkit-transform: scaleX(-1);
+      /*-webkit-transform: scaleX(-1);*/
       position: relative;
       text-align: center;
 }
 
-.title {
-      position: absolute;
-      bottom: 200px;
-      left: 40px;
-      color: #fffff0;
-      line-height: 0.8em;
-      min-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-}
+/*.title {*/
+/*      position: absolute;*/
+/*      bottom: 200px;*/
+/*      left: 40px;*/
+/*      color: #fffff0;*/
+/*      line-height: 0.8em;*/
+/*      min-width: 500px;*/
+/*      margin-left: auto;*/
+/*      margin-right: auto;*/
+/*}*/
 
 #by {
       font-family: 'Roboto';
@@ -156,6 +156,7 @@ p {
       /*justify-content: space-between;*/
       align-items: center;
       text-align: center;
+      height: 190px;
 }
 
 .flex-container-horizontal {
@@ -163,14 +164,12 @@ p {
       display: flex;
       flex-direction: row;
       align-items: top;
-      /*text-align: left;*/
 }
 
 .flex-container-vertical {
       display: flex;
       flex-direction: column;
       align-items: top;
-      /*text-align: left;*/
 }
 
 .flex-container-radio {
@@ -347,18 +346,18 @@ div.tooltipSwimming {
 
 /*********** animation ***********/
 
-#lugeContainer {
-      margin-left: 0px;
-}
-
 #lugeQuestion {
       font-family: 'AvenirNextCondensed-Medium';
       font-size: 24px;
       color: black;
       line-height: 1.8em;
-      margin-left: 400px;
-      margin-top: 40px;
-      text-align: left;
+      min-width: 620px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 10px;
 }
 
 #lugeIntro {
@@ -366,9 +365,11 @@ div.tooltipSwimming {
       font-size: 18px;
       color: black;
       line-height: 1.3em;
-      margin-left: 400px;
-      width: 100px;
       text-align: left;
+      min-width: 200px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
 }
 
 #lugeFlags {
@@ -379,14 +380,29 @@ div.tooltipSwimming {
       font-family: 'AvenirNextCondensed-Medium';
       color: #333333;
       font-size: 20px;
-      margin-left: 400px;
 }
 
-.flag {
-      margin-right:10px;
-      width: 40px;
-      height: 40px;
+#flags {
+    align: center;
 }
+
+.flag-column {
+      display: flex;
+      /*next line should be row, then center-aligned*/
+      flex-direction: column;
+      align-items: center;
+}
+
+
+/*.flex-container-overall {*/
+/*      display: flex;*/
+/*      flex-direction: column;*/
+      /*justify-content: space-between;*/
+/*      align-items: center;*/
+/*      text-align: center;*/
+/*      height: 190px;*/
+/*}*/
+
 
 .flag-row {
       display: flex;
@@ -394,14 +410,20 @@ div.tooltipSwimming {
       fill: #333333;
       font-size: 16px;
       flex-direction: row;
-      height: 40px;
-      margin-left: 400px;
+      height: 36px;
+      width: 260px;
 }
 
 .flag-text-container {
       display: flex;
       flex-direction: column;
       justify-content: center;
+}
+
+.flag {
+      margin-right:10px;
+      width: 40px;
+      height: 36px;
 }
 
 #click {
@@ -414,8 +436,11 @@ div.tooltipSwimming {
       text-decoration: none;
       display: inline-block;
       font-size: 24px;
-      margin-left: 400px;
+      margin-left: 100px;
+      margin-right: 100px;
       width: 100px;
+      margin-top: 60px;
+      margin-bottom: 60px;
 }
 
 #click:hover {

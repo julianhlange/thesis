@@ -394,33 +394,64 @@ function drawSwimGraph() {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // swimsuit images and text
-
+        
         var imgs = swimSVG.selectAll("image")
             .data([0]);
 
         imgs.enter()
             .append("svg:image")
-            .attr("xlink:href", "assets/swimsuit.png")
-            .attr("x", "-120")
-            .attr("y", "20")
-            .attr("width", "50")
-            .attr("height", "50");
+            .attr("xlink:href", "assets/swimsuit1.png")
+            .attr("x", "-150")
+            .attr("y", "10")
+            .attr("width", "100")
+            .attr("height", "60");
 
         imgs.enter()
             .append("svg:image")
-            .attr("xlink:href", "assets/swimsuit.png")
-            .attr("x", "-120")
-            .attr("y", "60")
-            .attr("width", "50")
-            .attr("height", "50");
+            .attr("xlink:href", "assets/swimsuit2.png")
+            .attr("x", "-150")
+            .attr("y", "85")
+            .attr("width", "100")
+            .attr("height", "60");
 
         imgs.enter()
             .append("svg:image")
-            .attr("xlink:href", "assets/swimsuit.png")
-            .attr("x", "-120")
-            .attr("y", "100")
-            .attr("width", "50")
-            .attr("height", "50");
+            .attr("xlink:href", "assets/swimsuit3.png")
+            .attr("x", "-110")
+            .attr("y", "160")
+            .attr("width", "15")
+            .attr("height", "80");
+        
+        var suitXstart = -60
+        var suitXend = suitXstart - 10
+        var suitYstart = margin.top - 100
+        var suitYmid1 = suitYstart + 80
+        var suitYmid2 = suitYmid1 + 25
+        var suitYmid3 = suitYmid2 + 20
+        var suitYmid4 = suitYmid3 + 25
+        var suitYend = height - margin.bottom + 65
+
+        var polyline1 = suitXstart + ", " + suitYstart + " " + suitXend + ", " + suitYstart + " " +
+            suitXend + ", " + suitYmid1 + " " + suitXstart + ", " + suitYmid1;
+        var polyline2 = suitXstart + ", " + suitYmid2 + " " + suitXend + ", " + suitYmid2 + " " +
+            suitXend + ", " + suitYmid3 + " " + suitXstart + ", " + suitYmid3;
+        var polyline3 = suitXstart + ", " + suitYmid4 + " " + suitXend + ", " + suitYmid4 + " " +
+            suitXend + ", " + suitYend + " " + suitXstart + ", " + suitYend;
+
+        swimSVG.append("polyline")
+            .attr("class", "lineKey")
+            .attr("points", polyline1)
+            .attr("fill", "none");
+        
+        swimSVG.append("polyline")
+            .attr("class", "lineKey")
+            .attr("points", polyline2)
+            .attr("fill", "none");
+
+        swimSVG.append("polyline")
+            .attr("class", "lineKey")
+            .attr("points", polyline3)
+            .attr("fill", "none");
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -459,8 +490,7 @@ function drawSwimGraph() {
 
 
         var explXstart = width + 20
-        var explXmid = explXstart + 10
-        var explXend = explXstart + 40
+        var explXend = explXstart + 10
         var explYstart = margin.top - 100
         var explYmid1 = explYstart + 80
         var explYmid2 = explYmid1 + 25
@@ -468,33 +498,26 @@ function drawSwimGraph() {
         var explYmid4 = explYmid3 + 25
         var explYend = height - margin.bottom + 65
 
-        var polyline1 = explXstart + ", " + explYstart + " " + explXmid + ", " + explYstart + " " +
-            explXmid + ", " + explYmid1 + " " + explXstart + ", " + explYmid1;
-        var polyline2 = explXstart + ", " + explYmid2 + " " + explXmid + ", " + explYmid2 + " " +
-            explXmid + ", " + explYmid3 + " " + explXstart + ", " + explYmid3;
-        var polyline3 = explXstart + ", " + explYmid4 + " " + explXmid + ", " + explYmid4 + " " +
-            explXmid + ", " + explYend + " " + explXstart + ", " + explYend;
+        var polyline4 = explXstart + ", " + explYstart + " " + explXend + ", " + explYstart + " " +
+            explXend + ", " + explYmid1 + " " + explXstart + ", " + explYmid1;
+        var polyline5 = explXstart + ", " + explYmid2 + " " + explXend + ", " + explYmid2 + " " +
+            explXend + ", " + explYmid3 + " " + explXstart + ", " + explYmid3;
+        var polyline6 = explXstart + ", " + explYmid4 + " " + explXend + ", " + explYmid4 + " " +
+            explXend + ", " + explYend + " " + explXstart + ", " + explYend;
 
         swimSVG.append("polyline")
             .attr("class", "lineKey")
-            .attr("points", polyline1)
-            .attr("fill", "none");
-
-        // svg.append("line")
-        //     .attr("class", "lineKey")
-        //     .attr("x1", explXstart)
-        //     .attr("y1", explYmid2)
-        //     .attr("x2", explXend)
-        //     .attr("y2", explYmid2)
-
-        swimSVG.append("polyline")
-            .attr("class", "lineKey")
-            .attr("points", polyline2)
+            .attr("points", polyline4)
             .attr("fill", "none");
 
         swimSVG.append("polyline")
             .attr("class", "lineKey")
-            .attr("points", polyline3)
+            .attr("points", polyline5)
+            .attr("fill", "none");
+
+        swimSVG.append("polyline")
+            .attr("class", "lineKey")
+            .attr("points", polyline6)
             .attr("fill", "none");
 
         swimSVG.exit().remove();

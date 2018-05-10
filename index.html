@@ -18,19 +18,13 @@
 
 <body>
     <div class="titleContainer">
-        <img id="photoFinish" src="assets/photoFinish.png" alt="2018 Olympics biathlon photo finish" style="width:100%;">
-        <div class="title">
-            <h1>On and Beyond the Edge</h1>
-            <h2>Visual stories of winning margins in elite sports</h2>
-            <p>Photo credit: Omega</p>
-        </div>
-        <!--<div class="subtitle">Visual Stories of Winning Margins in Elite Sports</div>-->
-        <!--</div>-->
-        <!--<h1 class="title"></h1>-->
-        <!--<h2></h2>-->
-        <h3 id="by">by</h3>
-        <h3 id="me"><a href="https://www.julianhlange.com" style="text-decoration: none" target="_blank">JULIAN H. LANGE</a></h3>
+        <img id="photoFinish" src="assets/photoFinishCropText.png" alt="2018 Olympics biathlon photo finish" style="width:100%;">
     </div>
+    
+    <!--<div class="subtitleContainer">-->
+    <!--    <h3 id="by">by</h3>-->
+    <!--    <h3 id="me"><a href="https://www.julianhlange.com" style="text-decoration: none" target="_blank">JULIAN H. LANGE</a></h3>-->
+    <!--</div>-->
 
     <!--Introduction-->
     <div>
@@ -159,69 +153,72 @@
     </div>
 
     <div id="container">
-        <p id="lugeQuestion">Who won the men's singles luge at the 2018 Winter Olympic Games?</p>
-        <p id="lugeIntro">The men's singles luge event was contested over four runs of the track.
+        <div id="lugeQuestion">Who won the men's singles luge at the 2018 Winter Olympic Games?</div>
+        <div id="lugeIntro">The men's singles luge event was contested over four runs of the track.
             For each athlete, the times from four runs were aggregated. Forty athletes competed.
-            This visualization displays the top 8 finishers. The winning margin between gold and silver
-            was 0.026 seconds.</p>
-        <p id="competitors">Competitors</p>
+            This animation uses available split-time data to display the top eight finishers side-by-side.
+            The winning margin between gold and silver was 0.026 seconds.<br><br></div>
+        <!--<div id="competitors">Competitors</div>-->
         
-        <div class="flag-row">
-            <img class="flag" src="assets/flags/austria.png">
-            <div class="flag-text-container">
-                <div>David GLEIRSCHER</div>
+        <div class="flags">    
+            <div class="flag-column">
+                
+                <div>
+                    <div class="flag-row">
+                        <img class="flag" src="assets/flags/austria.png">
+                        <div class="flag-text-container">David GLEIRSCHER</div>
+                    </div>
+            
+                    <div class="flag-row">
+                        <img class="flag" src="assets/flags/united-states-of-america.png">
+                        <div class="flag-text-container">Chris MAZDZER</div>
+                    </div>
+                    
+                    <div class="flag-row">
+                        <img class="flag" src="assets/flags/germany.png">
+                        <div class="flag-text-container">Johannes LUDWIG</div>
+                    </div>
+                    
+                    <div class="flag-row">
+                        <img class="flag" src="assets/flags/italy.png">
+                        <div class="flag-text-container">Dominik FISCHNALLER</div>
+                    </div>
+                </div>
+            
+                <div>
+                    <div class="flag-row">
+                        <img class="flag" src="assets/flags/germany.png">
+                        <div class="flag-text-container">
+                            <div>Felix LOCH</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flag-row">
+                        <img class="flag" src="assets/flags/canada.png">
+                        <div class="flag-text-container">
+                            <div>Sam EDNEY</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flag-row">
+                        <img class="flag" src="assets/flags/italy.png">
+                        <div class="flag-text-container">
+                            <div>Kevin FISCHNALLER</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flag-row">
+                        <img class="flag" src="assets/flags/russia.png">
+                        <div class="flag-text-container">
+                            <div>Roman REPILOV</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="flag-row">
-            <img class="flag" src="assets/flags/united-states-of-america.png">
-            <div class="flag-text-container">
-                <div>Chris MAZDZER</div>
-            </div>
-        </div>
+        </div> 
         
-        <div class="flag-row">
-            <img class="flag" src="assets/flags/germany.png">
-            <div class="flag-text-container">
-                <div>Johannes LUDWIG</div>
-            </div>
-        </div>
-        
-        <div class="flag-row">
-            <img class="flag" src="assets/flags/italy.png">
-            <div class="flag-text-container">
-                <div>Dominik FISCHNALLER</div>
-            </div>
-        </div>
-        
-        <div class="flag-row">
-            <img class="flag" src="assets/flags/germany.png">
-            <div class="flag-text-container">
-                <div>Felix LOCH</div>
-            </div>
-        </div>
-        
-        <div class="flag-row">
-            <img class="flag" src="assets/flags/canada.png">
-            <div class="flag-text-container">
-                <div>Sam EDNEY</div>
-            </div>
-        </div>
-        
-        <div class="flag-row">
-            <img class="flag" src="assets/flags/italy.png">
-            <div class="flag-text-container">
-                <div>Kevin FISCHNALLER</div>
-            </div>
-        </div>
-        
-        <div class="flag-row">
-            <img class="flag" src="assets/flags/russia.png">
-            <div class="flag-text-container">
-                <div>Roman REPILOV</div>
-            </div>
-        </div>
         <div id="click" onClick="startRun()">Start</div>
+    
     </div>
     
     <div>
