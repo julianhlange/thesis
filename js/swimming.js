@@ -401,7 +401,7 @@ function drawSwimGraph() {
         imgs.enter()
             .append("svg:image")
             .attr("xlink:href", "assets/swimsuit1.png")
-            .attr("x", "-150")
+            .attr("x", "-145")
             .attr("y", "10")
             .attr("width", "100")
             .attr("height", "60");
@@ -409,18 +409,18 @@ function drawSwimGraph() {
         imgs.enter()
             .append("svg:image")
             .attr("xlink:href", "assets/swimsuit2.png")
-            .attr("x", "-150")
-            .attr("y", "85")
+            .attr("x", "-145")
+            .attr("y", "90")
             .attr("width", "100")
             .attr("height", "60");
 
         imgs.enter()
             .append("svg:image")
             .attr("xlink:href", "assets/swimsuit3.png")
-            .attr("x", "-110")
-            .attr("y", "160")
-            .attr("width", "15")
-            .attr("height", "80");
+            .attr("x", "-145")
+            .attr("y", "170")
+            .attr("width", "100")
+            .attr("height", "60");
         
         var suitXstart = -60
         var suitXend = suitXstart - 10
@@ -452,6 +452,21 @@ function drawSwimGraph() {
             .attr("class", "lineKey")
             .attr("points", polyline3)
             .attr("fill", "none");
+        
+        swimSVG.append("text")
+            .attr("class", "descriptiveText")
+            .style("text-anchor", "end")
+            .attr('x', -120)
+            .attr('y', margin.top - 60)
+            .text("full-body, textile")
+            .append('svg:tspan')
+            .attr('x', -120)
+            .attr('dy', 78)
+            .text("full-body, polyurethane")
+            .append('svg:tspan')
+            .attr('x', -120)
+            .attr('dy', 87)
+            .text("jammer style, textile")
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
