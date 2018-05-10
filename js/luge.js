@@ -18,6 +18,7 @@ var xText, yText;
 // var button;
 var run = false;
 var splitMarkers = [];
+var runs = [];
 
 function setup() {
     myCanvas = createCanvas(1600, 405);
@@ -45,7 +46,7 @@ function setup() {
     beginnings = [beginning1, beginning2, beginning3, beginning4]
     ends = [end1, end2, end3, end4]
     splits = [splitstart, splitint1, splitint2, splitint3]
-    splitFlash = [153, 360, 615, 953, 1160, 1415, 1763, 1605, 2220, 2563, 2770, 3025]
+    splitFlash = [153, 360, 615, 953, 1160, 1415, 1763, 1970, 2220, 2563, 2770, 3025]
     names = ["DAVID GLEIRSCHER", "CHRIS MAZDZER", "JOHANNES LUDWIG", "DOMINIK FISCHNALLER", "FELIX LOCH", "SAM EDNEY", "KEVIN FISCHNALLER", "ROMAN REPILOV"]
     data = [DG, CM, JL, DF, FL, SE, KF, RR];
     xText = 20;
@@ -60,6 +61,7 @@ function setup() {
         for(j = 1; j < splits.length; j++)
         splitMarkers.push(beginnings[i]+splits[j])
     }
+    runs = ["RUN 1", "RUN 2", "RUN 3", "RUN 4"]
 }
 
 function startRun() {
@@ -87,8 +89,8 @@ function draw() {
     // text("start", beginning1 + trackPadding, startHeight + 8*rowHeight + 20)
     
     scale(2, 1)
-    if(frameCount > 100 & frameCount < 3000) { translate((-frameCount+100) * 2, 0) }
-    if(frameCount >= 3000) { translate((-3000+100) * 2, 0) }
+    if(frameCount > 150 & frameCount < 3100) { translate((-frameCount+150) * 2, 0) }
+    if(frameCount >= 3100) { translate((-3100+150) * 2, 0) }
     // if(frameCount > 150 && frameCount <= 600) { translate((-frameCount+150) * 2, 0) }
     // if(frameCount > 600) { translate(-900, 0) }
     // if(frameCount > 900 && frameCount <= 1500) { translate((-frameCount+750) * 2, 0) }
@@ -164,8 +166,8 @@ function draw() {
         
         rect(beginnings[i] - trackPadding - 4, startHeight + 8 * rowHeight + wallWidth, courseLength + 2*trackPadding + 4, nearWallHeight)
         
-        quad(beginnings[i] + 8 * laneOffset - trackPadding + wallDepth, startHeight- farWallHeight - wallWidth, beginnings[i] + 8 * laneOffset - trackPadding + wallDepth + courseLength + 2*trackPadding, startHeight-farWallHeight - wallWidth,
-            beginnings[i] + 8 * laneOffset - trackPadding + courseLength + 2*trackPadding, startHeight-farWallHeight-2, beginnings[i] + 8 * laneOffset - trackPadding, startHeight-farWallHeight)
+        quad(beginnings[i] + 8 * laneOffset - trackPadding + wallDepth, startHeight-farWallHeight - wallWidth, beginnings[i] + 8 * laneOffset - trackPadding + wallDepth + courseLength + 2*trackPadding + 4, startHeight-farWallHeight - wallWidth,
+            beginnings[i] + 8 * laneOffset - trackPadding + courseLength + 2*trackPadding + 4, startHeight-farWallHeight-2, beginnings[i] + 8 * laneOffset - trackPadding, startHeight-farWallHeight)
         
         quad(beginnings[i] - trackPadding + wallDepth - 4, startHeight + 8 * rowHeight, beginnings[i] - trackPadding + wallDepth + courseLength + 2*trackPadding, startHeight + 8 * rowHeight,
             beginnings[i] - trackPadding + courseLength + 2*trackPadding, startHeight + 8 * rowHeight + wallWidth, beginnings[i] - trackPadding - 4, startHeight + 8 * rowHeight + wallWidth)
@@ -175,6 +177,7 @@ function draw() {
         line(beginnings[i] + 8 * laneOffset - trackPadding, startHeight-farWallHeight - 1, ends[i] + 8 * laneOffset + trackPadding, startHeight-farWallHeight - 2)
         line(beginnings[i] - trackPadding - 4, startHeight + 8 * rowHeight + wallWidth - 1, ends[i] + trackPadding, startHeight + 8 * rowHeight + wallWidth - 2)
         
+        rect
     }
 
     // 7 thin horizontal lines per 4 runs
@@ -186,6 +189,7 @@ function draw() {
         }
     }
 
+    // athlete names text
     textFont("Noto Sans");
     textStyle(ITALIC);
     textAlign(LEFT);
@@ -204,18 +208,38 @@ function draw() {
             text(names[j], ends[i] + 90 - j * laneOffset - 50, startHeight + j * rowHeight + rowHeight * 2 / 3)
         }
     }
-    
-    // textFont("Noto Sans");
-    // // textStyle(ITALIC);
-    // textAlign(CENTER);
-    // fill(color('rgba(55, 55, 55, 0.2)'));
-    // textSize(20)
-    // push();
-    // rotate(-75)
-    // translate(-240, 265)
-    // text("S P L I T  1", 0, 0)
-    // pop();
+    if(frameCount >= 3160) {
+        textAlign(RIGHT);
+        fill(color('rgba(218, 165, 32, 0.5)'));
+        for (i = 3; i < 4; i++) {
+        for (j = 0; j < 1; j++) {
+            textSize(rowHeight / 2.5);
+            text(names[j], ends[i] + 90 - j * laneOffset - 50, startHeight + j * rowHeight + rowHeight * 2 / 3)
+        }
+        fill(color('rgba(153, 153, 153, 0.5)'));
+        for (j = 1; j < 2; j++) {
+            textSize(rowHeight / 2.5);
+            text(names[j], ends[i] + 90 - j * laneOffset - 50, startHeight + j * rowHeight + rowHeight * 2 / 3)
+        }
+        fill(color('rgba(160, 82, 45, 0.5)'));
+        for (j = 2; j < 3; j++) {
+            textSize(rowHeight / 2.5);
+            text(names[j], ends[i] + 90 - j * laneOffset - 50, startHeight + j * rowHeight + rowHeight * 2 / 3)
+        }
+    }
         
+    }
+    
+    // run 1-4 text
+    textFont("Noto Sans");
+    textStyle(ITALIC);
+    textAlign(CENTER);
+    fill(color('rgba(38, 21, 255, 0.1)'));
+    textSize(200)
+    for (i = 0; i < 4; i++) {
+        text(runs[i], beginnings[i] + courseLength/2 - 10, startHeight + 5.75 * rowHeight)
+    }
+   
 
     fill(50)
     var ellipseWidth = 10
