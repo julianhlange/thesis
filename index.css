@@ -36,6 +36,14 @@
       font-style: normal;
 }
 
+@font-face {
+    font-family: "Global-Medium";
+    src: url('fonts/Global-Medium-webfont.woff2') format('woff2'),
+         url('fonts/Global-Medium-webfont.woff') format('woff');
+    /*font-weight: normal;*/
+    /*font-style: normal;*/
+}
+
 
 /*********** text and general ***********/
 
@@ -346,6 +354,10 @@ div.tooltipSwimming {
 
 /*********** animation ***********/
 
+#subcontainer {
+      align: center;
+}
+
 #lugeQuestion {
       font-family: 'AvenirNextCondensed-Medium';
       font-size: 24px;
@@ -382,7 +394,7 @@ div.tooltipSwimming {
       font-size: 20px;
 }
 
-#flags {
+.flags {
     align: center;
 }
 
