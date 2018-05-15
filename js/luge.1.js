@@ -104,7 +104,7 @@ function draw() {
     textAlign(LEFT);
     fill(50);
     textSize(14);
-    if(frameCount > floor(48/5*60) & frameCount < 1000) { text("test", 1400-4*(frameCount-floor(48/5*60)), 50) };
+    // if(frameCount > floor(48/5*60) & frameCount < 1000) { text("test", 1400-4*(frameCount-floor(48/5*60)), 50) };
 
     scale(2, 1)
     if(frameCount > 150 & frameCount < 3100) { translate((-frameCount+150) * 2, 0) }
