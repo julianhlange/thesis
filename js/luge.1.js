@@ -38,7 +38,7 @@ var perspectiveFactor;
 // }
 
 function setup() {
-    myCanvas = createCanvas(3600, 505);
+    myCanvas = createCanvas(1600, 505);
     myCanvas.parent("container");
     angleMode(DEGREES);
     startHeight = 120
@@ -214,29 +214,11 @@ function draw() {
     //////////////////// lines for split times, start and finish lines, side walls, and thin horizontal lines //////////////////// 
 
     // 3 split time lines per run (don't include start) and flash when cross
-    // stroke(color('rgba(100, 100, 100, 0.3)'));
-    // strokeWeight(6);
-    // for (i = 0; i < 4; i++) {
-    //     for (j = 1; j < splits.length; j++) {
-    //         line(beginnings[i] + splits[j] + 8 * laneOffset, startHeight, beginnings[i] + splits[j], startHeight + 8 * rowHeight)
-    //     }
-    // }
-    // for(i = 0; i < splitMarkers.length; i++) {
-    //     if(frameCount>(splitMarkers[i]-splitFlash[i])) { 
-    //         stroke(color('rgba(255, 250, 205, 0.3)'));
-    //         strokeWeight(6);
-    //         line(splitMarkers[i] + 8 * laneOffset, startHeight, splitMarkers[i], startHeight + 8 * rowHeight)
-    //     }
-    // }
-    
-    noStroke()
-    fill(color('rgba(100, 100, 100, 0.3)'));
+    stroke(color('rgba(100, 100, 100, 0.3)'));
+    strokeWeight(6);
     for (i = 0; i < 4; i++) {
         for (j = 1; j < splits.length; j++) {
-            quad(beginnings[i] + splits[j] + 8 * laneOffset, startHeight,
-                beginnings[i] + splits[j] + 8 * laneOffset + stopLineThickness/2, startHeight,
-                beginnings[i] + splits[j] + startLineThickness/2*(perspectiveFactor^j), startHeight + 8 * rowHeight,
-                beginnings[i] + splits[j], startHeight + 8 * rowHeight)
+            line(beginnings[i] + splits[j] + 8 * laneOffset, startHeight, beginnings[i] + splits[j], startHeight + 8 * rowHeight)
         }
     }
     for(i = 0; i < splitMarkers.length; i++) {
@@ -246,6 +228,24 @@ function draw() {
             line(splitMarkers[i] + 8 * laneOffset, startHeight, splitMarkers[i], startHeight + 8 * rowHeight)
         }
     }
+    
+    // noStroke()
+    // fill(color('rgba(100, 100, 100, 0.3)'));
+    // for (i = 0; i < 4; i++) {
+    //     for (j = 1; j < splits.length; j++) {
+    //         quad(beginnings[i] + splits[j] + 8 * laneOffset, startHeight,
+    //             beginnings[i] + splits[j] + 8 * laneOffset + stopLineThickness/2, startHeight,
+    //             beginnings[i] + splits[j] + startLineThickness/2*(perspectiveFactor^j), startHeight + 8 * rowHeight,
+    //             beginnings[i] + splits[j], startHeight + 8 * rowHeight)
+    //     }
+    // }
+    // for(i = 0; i < splitMarkers.length; i++) {
+    //     if(frameCount>(splitMarkers[i]-splitFlash[i])) { 
+    //         stroke(color('rgba(255, 250, 205, 0.3)'));
+    //         strokeWeight(6);
+    //         line(splitMarkers[i] + 8 * laneOffset, startHeight, splitMarkers[i], startHeight + 8 * rowHeight)
+    //     }
+    // }
 
 
 
@@ -357,87 +357,75 @@ function draw() {
         }
     }
     // at end of run 1
-    if(frameCount >= 572) {
+    if(frameCount >= 572 && frameCount <= 592 || frameCount >= 612) {
         textAlign(RIGHT);
-        fill(color('rgba(218, 165, 32, 0.5)'));
         for (i = 0; i < 1; i++) {
-            for (j = 0; j < 1; j++) {
-                textSize(rowHeight / 3 + j/1.5);
-                text(names[j], ends[i] + 90 - j * laneOffset - 75 - j, startHeight + j * rowHeight + rowHeight * 2 / 3)
-            }
+            var l = 0
+            textSize(rowHeight / 3 + l/1.5);
+            fill(color('rgba(218, 165, 32, 0.5)')); 
+            text(names[l], ends[i] + 90 - l * laneOffset - 75 - l, startHeight + l * rowHeight + rowHeight * 2 / 3)
+            var l = 4
+            textSize(rowHeight / 3 + l/1.5);
             fill(color('rgba(153, 153, 153, 0.5)'));
-            for (j = 1; j < 2; j++) {
-                textSize(rowHeight / 3 + j/1.5);
-                text(names[j], ends[i] + 90 - j * laneOffset - 75 - j, startHeight + j * rowHeight + rowHeight * 2 / 3)
-            }
+            text(names[l], ends[i] + 90 - l * laneOffset - 75 - l, startHeight + l * rowHeight + rowHeight * 2 / 3)
+            var l = 2
+            textSize(rowHeight / 3 + l/1.5);
             fill(color('rgba(160, 82, 45, 0.5)'));
-            for (j = 2; j < 3; j++) {
-                textSize(rowHeight / 3 + j/1.5);
-                text(names[j], ends[i] + 90 - j * laneOffset - 75 - j, startHeight + j * rowHeight + rowHeight * 2 / 3)
-            }
+            text(names[l], ends[i] + 90 - l * laneOffset - 75 - l, startHeight + l * rowHeight + rowHeight * 2 / 3)
         }
     }
     // at end of run 2
-    if(frameCount >= 1433) {
+    if(frameCount >= 1433 && frameCount <= 1453 || frameCount >= 1473) {
         textAlign(RIGHT);
-        fill(color('rgba(218, 165, 32, 0.5)'));
         for (i = 1; i < 2; i++) {
-            for (j = 0; j < 1; j++) {
-                textSize(rowHeight / 3 + j/1.5);
-                text(names[j], ends[i] + 90 - j * laneOffset - 75 - j, startHeight + j * rowHeight + rowHeight * 2 / 3)
-            }
+            var l = 4
+            textSize(rowHeight / 3 + l/1.5);
+            fill(color('rgba(218, 165, 32, 0.5)'));
+            text(names[l], ends[i] + 90 - l * laneOffset - 75 - l, startHeight + l * rowHeight + rowHeight * 2 / 3)
+            var l = 0
+            textSize(rowHeight / 3 + l/1.5);
             fill(color('rgba(153, 153, 153, 0.5)'));
-            for (j = 1; j < 2; j++) {
-                textSize(rowHeight / 3 + j/1.5);
-                text(names[j], ends[i] + 90 - j * laneOffset - 75 - j, startHeight + j * rowHeight + rowHeight * 2 / 3)
-            }
+            text(names[l], ends[i] + 90 - l * laneOffset - 75 - l, startHeight + l * rowHeight + rowHeight * 2 / 3)
+            var l = 7
+            textSize(rowHeight / 3 + l/1.5);
             fill(color('rgba(160, 82, 45, 0.5)'));
-            for (j = 2; j < 3; j++) {
-                textSize(rowHeight / 3 + j/1.5);
-                text(names[j], ends[i] + 90 - j * laneOffset - 75 - j, startHeight + j * rowHeight + rowHeight * 2 / 3)
-            }
+            text(names[l], ends[i] + 90 - l * laneOffset - 75 - l, startHeight + l * rowHeight + rowHeight * 2 / 3)
         }
     }
     // at end of run 3
-    if(frameCount >= 2293) {
+    if(frameCount >= 2293 && frameCount <= 2313 || frameCount >= 2333) {
         textAlign(RIGHT);
-        fill(color('rgba(218, 165, 32, 0.5)'));
         for (i = 2; i < 3; i++) {
-            for (j = 0; j < 1; j++) {
-                textSize(rowHeight / 3 + j/1.5);
-                text(names[j], ends[i] + 90 - j * laneOffset - 75 - j, startHeight + j * rowHeight + rowHeight * 2 / 3)
-            }
+            var l = 4
+            textSize(rowHeight / 3 + l/1.5);
+            fill(color('rgba(218, 165, 32, 0.5)'));
+            text(names[l], ends[i] + 90 - l * laneOffset - 75 - l, startHeight + l * rowHeight + rowHeight * 2 / 3)
+            var l = 1
+            textSize(rowHeight / 3 + l/1.5);
             fill(color('rgba(153, 153, 153, 0.5)'));
-            for (j = 1; j < 2; j++) {
-                textSize(rowHeight / 3 + j/1.5);
-                text(names[j], ends[i] + 90 - j * laneOffset - 75 - j, startHeight + j * rowHeight + rowHeight * 2 / 3)
-            }
+            text(names[l], ends[i] + 90 - l * laneOffset - 75 - l, startHeight + l * rowHeight + rowHeight * 2 / 3)
+            var l = 0
+            textSize(rowHeight / 3 + l/1.5);
             fill(color('rgba(160, 82, 45, 0.5)'));
-            for (j = 2; j < 3; j++) {
-                textSize(rowHeight / 3 + j/1.5);
-                text(names[j], ends[i] + 90 - j * laneOffset - 75 - j, startHeight + j * rowHeight + rowHeight * 2 / 3)
-            }
+            text(names[l], ends[i] + 90 - l * laneOffset - 75 - l, startHeight + l * rowHeight + rowHeight * 2 / 3)
         }
     }
     // at end of run 4
-    if(frameCount >= 3154) {
+    if(frameCount >= 3154 && frameCount <= 3174 || frameCount >= 3194) {
         textAlign(RIGHT);
-        fill(color('rgba(218, 165, 32, 0.8)'));
         for (i = 3; i < 4; i++) {
-            for (j = 0; j < 1; j++) {
-                textSize(rowHeight / 3 + j/1.5);
-                text(names[j], ends[i] + 90 - j * laneOffset - 75 - j, startHeight + j * rowHeight + rowHeight * 2 / 3)
-            }
+            var l = 0
+            textSize(rowHeight / 3 + l/1.5);
+            fill(color('rgba(218, 165, 32, 0.8)'));
+            text(names[l], ends[i] + 90 - l * laneOffset - 75 - l, startHeight + l * rowHeight + rowHeight * 2 / 3)
+            var l = 1
+            textSize(rowHeight / 3 + l/1.5);
             fill(color('rgba(153, 153, 153, 0.5)'));
-            for (j = 1; j < 2; j++) {
-                textSize(rowHeight / 3 + j/1.5);
-                text(names[j], ends[i] + 90 - j * laneOffset - 75 - j, startHeight + j * rowHeight + rowHeight * 2 / 3)
-            }
+            text(names[l], ends[i] + 90 - l * laneOffset - 75 - l, startHeight + l * rowHeight + rowHeight * 2 / 3)
+            var l = 2
+            textSize(rowHeight / 3 + l/1.5);
             fill(color('rgba(160, 82, 45, 0.5)'));
-            for (j = 2; j < 3; j++) {
-                textSize(rowHeight / 3 + j/1.5);
-                text(names[j], ends[i] + 90 - j * laneOffset - 75 - j, startHeight + j * rowHeight + rowHeight * 2 / 3)
-            }
+            text(names[l], ends[i] + 90 - l * laneOffset - 75 - l, startHeight + l * rowHeight + rowHeight * 2 / 3)
         }
     }
     
@@ -445,17 +433,17 @@ function draw() {
     //////////////////// run 1-4 text ////////////////////
     textFont("Noto Sans");
     textStyle(ITALIC);
-    fill(color('rgba(38, 21, 255, 0.1)'));
     for (i = 0; i < 4; i++) {
         push()
         translate(beginnings[i] + splitint1 + (splitint2-splitint1)/2 - 5, startHeight)
+        fill(color('rgba(38, 21, 255, 0.1)'));
         textAlign(CENTER, CENTER);
         textSize(280)
         text(runs[i], 0, 3.8 * rowHeight)
         textAlign(LEFT, CENTER);
         textSize(36)
         text(runsText[i], runsTextPosition[i], 2.5 * rowHeight)
-        fill(color('rgba(38, 21, 255, 0.07)'));
+        fill(color('rgba(38, 21, 255, 0.05)'));
         textSize(32)
         text("of four", runsTextPosition[i]-10, 3.5 * rowHeight)
         pop()
@@ -943,32 +931,34 @@ function draw() {
 
 
 
-    //////////////////// luge sleds ////////////////////
-    fill(50);
-    noStroke();
+    //////////////////// luge sleds, thin ice patch, spray ////////////////////
     for (i = 0; i < data.length; i++) {
+        noStroke();
+        // luge sled
+        fill(50);
         var ellipseWidth = 10 + i/5
         var ellipseheight = 6 + i/5
         ellipse(data[i][frameCount] + distanceToStart + 8 * laneOffset - i * laneOffset - ellipseWidth+i/10, startHeight + i * rowHeight + rowHeight / 2, ellipseWidth, ellipseheight)
-    }
-
-
-
-    //////////////////// ice spray ////////////////////
-    for(i = 0; i < data.length; i++) {
+        // thin ice patch
+        fill(color('rgba(255, 255, 255, 0.1)'));
+        rect(distanceToStart + 8 * laneOffset - i * laneOffset - 1.5*ellipseWidth, startHeight+i*rowHeight + rowHeight/2 - ellipseheight/2, data[i][frameCount], ellipseheight)
+        // spray
         for(k = 0; k < 10; k++) {
-            x = data[i][frameCount] + distanceToStart + 8 * laneOffset - i * laneOffset - random(25,45)
+            x = data[i][frameCount] + distanceToStart + 8 * laneOffset - i * laneOffset - random(2*ellipseWidth,3*ellipseWidth)
             y =  startHeight+i*rowHeight + rowHeight/3 + random(10)
             noStroke();
             fill(color('rgba(240,240,240, 0.5)'));
             ellipse(x, y, 1, 1)
         }
+        
+    }
+
+
+
+    //////////////////// thin ice patch and spray ////////////////////
+    for(i = 0; i < data.length; i++) {
+        
     }
     
 }
-
-
-
-
-
 
