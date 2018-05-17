@@ -30,15 +30,15 @@ var perspectiveFactor;
 
 
 function setup() {
-    myCanvas = createCanvas(1600, 505);
+    myCanvas = createCanvas(1600, 405);
     myCanvas.parent("container");
     angleMode(DEGREES);
-    startHeight = 120
+    startHeight = 20
     rowHeight = 36
     laneOffset = 10
     distanceToStart = 70
     courseLength = 1365;
-    gap = 200
+    gap = 150
     beginning1 = distanceToStart;
     end1 = beginning1 + courseLength
     beginning2 = end1 + gap
