@@ -13,10 +13,24 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.min.js"></script>
-    <script language="javascript" type="text/javascript" src="p5.play.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.sound.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="data/lugeData.js" type="text/javascript"></script>
+    <script src="data/data_accel_all.js" type="text/javascript"></script>
 </head>
+
+<script>
+    let mySound;
+
+        function preload() {
+            mySound = loadSound('assets/bush_read.wav');
+        }
+
+        function setup() {
+            mySound.loop(0, 1, 1, 0, 7);
+        }
+
+    
+</script>
 
 <body>
     <div class="titleContainer">
@@ -223,7 +237,7 @@
     </div>
 
     <div>
-        <script src="js/luge.1.js" type="text/javascript"></script>
+        <script src="js/luge.2.js" type="text/javascript"></script>
     </div>
 
     <div>

@@ -27,15 +27,6 @@ var flagWidth;
 var flagHeight;
 var perspectiveFactor;
 
-// function preload() {
-//     austria = loadImage("assets/flags/austria.png");
-//     usa = loadImage("assets/flags/united-states-of-america.png")
-//     germany = loadImage("assets/flags/germany.png")
-//     italy = loadImage("assets/flags/italy.png")
-//     canada = loadImage("assets/flags/canada.png")
-//     russia = loadImage("assets/flags/russia.png")
-//     images = [austria, usa, germany, italy, germany, canada, italy, russia]
-// }
 
 function setup() {
     myCanvas = createCanvas(1600, 505);
@@ -574,170 +565,170 @@ function draw() {
         translate(beginnings[i] + trackPadding + 50, startHeight + 0.16*rowHeight)
         shearX(-13.5);
         
-        // austria
-        push();
-        translate(0, 0*rowHeight)
-        var flagWidthCountry = flagWidth - 2/2
-        strokeWeight(0.5)
-        stroke(220)
-        rect(0, 0, flagWidthCountry, flagHeight)
-        noStroke()
-        fill(color('rgba(237,41,57, 0.4)'));
-        quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight/3, 0, flagHeight/3)
-        fill(color('rgba(240,240,240, 0.4)'));
-        quad(0, flagHeight/3, flagWidthCountry, flagHeight/3, flagWidthCountry, 2*flagHeight/3, 0, 2*flagHeight/3)
-        fill(color('rgba(237,41,57, 0.4)'));
-        quad(0, 2*flagHeight/3, flagWidthCountry, 2*flagHeight/3, flagWidthCountry, 3*flagHeight/3, 0, 3*flagHeight/3)
-        pop();
-        
-        // usa
-        push();
-        translate(0, 1*rowHeight)
-        var flagWidthCountry = flagWidth - 1/2
-        strokeWeight(0.5)
-        stroke(220)
-        rect(0, 0, flagWidthCountry, flagHeight)
-        noStroke()
-        fill(color('rgba(191, 10, 48, 0.4)'));
-        quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight, 0, flagHeight)
-        for(var k = 1; k < 12; k += 2) {
-            fill(color('rgba(240,240,240, 0.8)'));
-            quad(0, flagHeight/13*k, flagWidthCountry, flagHeight/13*k, flagWidthCountry, flagHeight/13*(k+1), 0, flagHeight/13*(k+1))
-        }
-        fill(color('rgba(255, 255, 255, 1)'));  // this and next line are just to cover background for blue to have opacity
-        quad(0, 0, flagWidthCountry*10.4/26, 0, flagWidthCountry*10.4/26, flagHeight*7/13, 0, flagHeight*7/13)
-        fill(color('rgba(0, 40, 104, 0.4)'));
-        quad(0, 0, flagWidthCountry*10.4/26, 0, flagWidthCountry*10.4/26, flagHeight*7/13, 0, flagHeight*7/13)
-        fill(color('rgba(240,240,240, 0.8)'));
-        for(let m = 0; m < 7; m++) {
-            for(let n = 0; n < 5; n++) {
-                x = (flagWidthCountry*10.4/26)/8 + (flagWidthCountry*10.4/26)/8 * m
-                y = (flagHeight*7/13)/6 + (flagHeight*7/13)/6 * n
-                ellipse(x, y, 1, 1)
-            }
-        }
-        pop();
-        
-        // germany
-        push();
-        translate(0, 2*rowHeight)
-        var flagWidthCountry = flagWidth + 0/2
-        strokeWeight(0.5)
-        stroke(220)
-        rect(0, 0, flagWidthCountry, flagHeight)
-        noStroke()
-        fill(color('rgba(0,0,0, 0.4)'));
-        quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight/3, 0, flagHeight/3)
-        fill(color('rgba(255,0,0, 0.4)'));
-        quad(0, flagHeight/3, flagWidthCountry, flagHeight/3, flagWidthCountry, 2*flagHeight/3, 0, 2*flagHeight/3)
-        fill(color('rgba(255,204,0, 0.4)'));
-        quad(0, 2*flagHeight/3, flagWidthCountry, 2*flagHeight/3, flagWidthCountry, 3*flagHeight/3, 0, 3*flagHeight/3)
-        pop();
-        
-        // italy
-        push();
-        translate(0, 3*rowHeight)
-        var flagWidthCountry = flagWidth + 1/2
-        strokeWeight(0.5)
-        stroke(220)
-        rect(0, 0, flagWidthCountry, flagHeight)
-        noStroke()
-        fill(color('rgba(0,140,69, 0.4)'));
-        quad(0, 0, flagWidthCountry/3, 0, flagWidthCountry/3, flagHeight, 0, flagHeight)
-        fill(color('rgba(240,240,240, 0.4)'));
-        quad(flagWidthCountry/3, 0, flagWidthCountry*2/3, 0, flagWidthCountry*2/3, flagHeight, flagWidthCountry/3, flagHeight)
-        fill(color('rgba(205,33,42, 0.4)'));
-        quad(flagWidthCountry*2/3, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight, flagWidthCountry*2/3, flagHeight)
-        pop();
-        
-        // germany
-        push();
-        translate(0, 4*rowHeight)
-        var flagWidthCountry = flagWidth + 2/2
-        strokeWeight(0.5)
-        stroke(220)
-        rect(0, 0, flagWidthCountry, flagHeight)
-        noStroke()
-        fill(color('rgba(0,0,0, 0.4)'));
-        quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight/3, 0, flagHeight/3)
-        fill(color('rgba(255,0,0, 0.4)'));
-        quad(0, flagHeight/3, flagWidthCountry, flagHeight/3, flagWidthCountry, 2*flagHeight/3, 0, 2*flagHeight/3)
-        fill(color('rgba(255,204,0, 0.4)'));
-        quad(0, 2*flagHeight/3, flagWidthCountry, 2*flagHeight/3, flagWidthCountry, flagHeight, 0, flagHeight)
-        pop();
-        
-        // canada
-        push();
-        translate(0, 5*rowHeight)
-        var flagWidthCountry = flagWidth + 3/2
-        strokeWeight(0.5)
-        stroke(220)
-        rect(0, 0, flagWidthCountry, flagHeight)
-        noStroke()
-        fill(color('rgba(255,0,0, 0.4)'));
-        quad(0, 0, flagWidthCountry/4, 0, flagWidthCountry/4, flagHeight, 0, flagHeight)
-        fill(color('rgba(240,240,240, 0.4)'));
-        quad(flagWidthCountry/4, 0, flagWidthCountry/4, 0, flagWidthCountry*3/4, flagHeight, flagWidthCountry*3/4, flagHeight)
-        fill(color('rgba(255,0,0, 0.4)'));
-        quad(flagWidthCountry*3/4, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight, flagWidthCountry*3/4, flagHeight)
-        fill(color('rgba(255,0,0, 0.4)'));
+            // austria
             push();
-            translate(flagWidthCountry/2, flagHeight*2/3)
-            beginShape()
-                vertex(-flagWidthCountry/60, -flagHeight/20)
-                vertex(-flagWidthCountry/8, 0)
-                vertex(-flagWidthCountry/6, -flagHeight/8)
-                vertex(-flagWidthCountry/8, -flagHeight/8*2)
-                vertex(-flagWidthCountry/20, -flagHeight/8*2+flagWidthCountry/60)
-                
-                vertex(-flagWidthCountry/16, -flagHeight/3)
-                vertex(0, -flagHeight/3-flagWidthCountry/8)
-                vertex(flagWidthCountry/16, -flagHeight/3)
-                
-                vertex(flagWidthCountry/20, -flagHeight/8*2+flagWidthCountry/60)
-                vertex(flagWidthCountry/8, -flagHeight/8*2)
-                vertex(flagWidthCountry/6, -flagHeight/8)
-                vertex(flagWidthCountry/8, -flagHeight/30)
-                
-                vertex(flagWidthCountry/60, -flagHeight/20)
-                vertex(flagWidthCountry/60, flagHeight/6)
-                vertex(-flagWidthCountry/60, flagHeight/6)
-                
-            endShape()
+            translate(0, 0*rowHeight)
+            var flagWidthCountry = flagWidth - 2/2
+            strokeWeight(0.5)
+            stroke(220)
+            rect(0, 0, flagWidthCountry, flagHeight)
+            noStroke()
+            fill(color('rgba(237,41,57, 0.4)'));
+            quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight/3, 0, flagHeight/3)
+            fill(color('rgba(240,240,240, 0.4)'));
+            quad(0, flagHeight/3, flagWidthCountry, flagHeight/3, flagWidthCountry, 2*flagHeight/3, 0, 2*flagHeight/3)
+            fill(color('rgba(237,41,57, 0.4)'));
+            quad(0, 2*flagHeight/3, flagWidthCountry, 2*flagHeight/3, flagWidthCountry, 3*flagHeight/3, 0, 3*flagHeight/3)
             pop();
-        pop();
-        
-        // italy
-        push();
-        translate(0, 6*rowHeight)
-        var flagWidthCountry = flagWidth + 4/2
-        strokeWeight(0.5)
-        stroke(220)
-        rect(0, 0, flagWidthCountry, flagHeight)
-        noStroke()
-        fill(color('rgba(0,140,69, 0.4)'));
-        quad(0, 0, flagWidthCountry/3, 0, flagWidthCountry/3, flagHeight, 0, flagHeight)
-        fill(color('rgba(240,240,240, 0.4)'));
-        quad(flagWidthCountry/3, 0, flagWidthCountry*2/3, 0, flagWidthCountry*2/3, flagHeight, flagWidthCountry/3, flagHeight)
-        fill(color('rgba(205,33,42, 0.4)'));
-        quad(flagWidthCountry*2/3, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight, flagWidthCountry*2/3, flagHeight)
-        pop();
-        
-        // russia
-        push();
-        translate(0, 7*rowHeight)
-        var flagWidthCountry = flagWidth + 5/2
-        strokeWeight(0.5)
-        stroke(220)
-        rect(0, 0, flagWidthCountry, flagHeight)
-        noStroke()
-        fill(color('rgba(240,240,240, 0.4)'));
-        quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight/3, 0, flagHeight/3)
-        fill(color('rgba(0,57,166, 0.4)'));
-        quad(0, flagHeight/3, flagWidthCountry, flagHeight/3, flagWidthCountry, 2*flagHeight/3, 0, 2*flagHeight/3)
-        fill(color('rgba(213,43,30, 0.4)'));
-        quad(0, 2*flagHeight/3, flagWidthCountry, 2*flagHeight/3, flagWidthCountry, flagHeight, 0, flagHeight)
-        pop();
+            
+            // usa
+            push();
+            translate(0, 1*rowHeight)
+            var flagWidthCountry = flagWidth - 1/2
+            strokeWeight(0.5)
+            stroke(220)
+            rect(0, 0, flagWidthCountry, flagHeight)
+            noStroke()
+            fill(color('rgba(191, 10, 48, 0.4)'));
+            quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight, 0, flagHeight)
+            for(var k = 1; k < 12; k += 2) {
+                fill(color('rgba(240,240,240, 0.8)'));
+                quad(0, flagHeight/13*k, flagWidthCountry, flagHeight/13*k, flagWidthCountry, flagHeight/13*(k+1), 0, flagHeight/13*(k+1))
+            }
+            fill(color('rgba(255, 255, 255, 1)'));  // this and next line are just to cover background for blue to have opacity
+            quad(0, 0, flagWidthCountry*10.4/26, 0, flagWidthCountry*10.4/26, flagHeight*7/13, 0, flagHeight*7/13)
+            fill(color('rgba(0, 40, 104, 0.4)'));
+            quad(0, 0, flagWidthCountry*10.4/26, 0, flagWidthCountry*10.4/26, flagHeight*7/13, 0, flagHeight*7/13)
+            fill(color('rgba(240,240,240, 0.8)'));
+            for(let m = 0; m < 7; m++) {
+                for(let n = 0; n < 5; n++) {
+                    x = (flagWidthCountry*10.4/26)/8 + (flagWidthCountry*10.4/26)/8 * m
+                    y = (flagHeight*7/13)/6 + (flagHeight*7/13)/6 * n
+                    ellipse(x, y, 1, 1)
+                }
+            }
+            pop();
+            
+            // germany
+            push();
+            translate(0, 2*rowHeight)
+            var flagWidthCountry = flagWidth + 0/2
+            strokeWeight(0.5)
+            stroke(220)
+            rect(0, 0, flagWidthCountry, flagHeight)
+            noStroke()
+            fill(color('rgba(0,0,0, 0.4)'));
+            quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight/3, 0, flagHeight/3)
+            fill(color('rgba(255,0,0, 0.4)'));
+            quad(0, flagHeight/3, flagWidthCountry, flagHeight/3, flagWidthCountry, 2*flagHeight/3, 0, 2*flagHeight/3)
+            fill(color('rgba(255,204,0, 0.4)'));
+            quad(0, 2*flagHeight/3, flagWidthCountry, 2*flagHeight/3, flagWidthCountry, 3*flagHeight/3, 0, 3*flagHeight/3)
+            pop();
+            
+            // italy
+            push();
+            translate(0, 3*rowHeight)
+            var flagWidthCountry = flagWidth + 1/2
+            strokeWeight(0.5)
+            stroke(220)
+            rect(0, 0, flagWidthCountry, flagHeight)
+            noStroke()
+            fill(color('rgba(0,140,69, 0.4)'));
+            quad(0, 0, flagWidthCountry/3, 0, flagWidthCountry/3, flagHeight, 0, flagHeight)
+            fill(color('rgba(240,240,240, 0.4)'));
+            quad(flagWidthCountry/3, 0, flagWidthCountry*2/3, 0, flagWidthCountry*2/3, flagHeight, flagWidthCountry/3, flagHeight)
+            fill(color('rgba(205,33,42, 0.4)'));
+            quad(flagWidthCountry*2/3, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight, flagWidthCountry*2/3, flagHeight)
+            pop();
+            
+            // germany
+            push();
+            translate(0, 4*rowHeight)
+            var flagWidthCountry = flagWidth + 2/2
+            strokeWeight(0.5)
+            stroke(220)
+            rect(0, 0, flagWidthCountry, flagHeight)
+            noStroke()
+            fill(color('rgba(0,0,0, 0.4)'));
+            quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight/3, 0, flagHeight/3)
+            fill(color('rgba(255,0,0, 0.4)'));
+            quad(0, flagHeight/3, flagWidthCountry, flagHeight/3, flagWidthCountry, 2*flagHeight/3, 0, 2*flagHeight/3)
+            fill(color('rgba(255,204,0, 0.4)'));
+            quad(0, 2*flagHeight/3, flagWidthCountry, 2*flagHeight/3, flagWidthCountry, flagHeight, 0, flagHeight)
+            pop();
+            
+            // canada
+            push();
+            translate(0, 5*rowHeight)
+            var flagWidthCountry = flagWidth + 3/2
+            strokeWeight(0.5)
+            stroke(220)
+            rect(0, 0, flagWidthCountry, flagHeight)
+            noStroke()
+            fill(color('rgba(255,0,0, 0.4)'));
+            quad(0, 0, flagWidthCountry/4, 0, flagWidthCountry/4, flagHeight, 0, flagHeight)
+            fill(color('rgba(240,240,240, 0.4)'));
+            quad(flagWidthCountry/4, 0, flagWidthCountry/4, 0, flagWidthCountry*3/4, flagHeight, flagWidthCountry*3/4, flagHeight)
+            fill(color('rgba(255,0,0, 0.4)'));
+            quad(flagWidthCountry*3/4, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight, flagWidthCountry*3/4, flagHeight)
+            fill(color('rgba(255,0,0, 0.4)'));
+                push();
+                translate(flagWidthCountry/2, flagHeight*2/3)
+                beginShape()
+                    vertex(-flagWidthCountry/60, -flagHeight/20)
+                    vertex(-flagWidthCountry/8, 0)
+                    vertex(-flagWidthCountry/6, -flagHeight/8)
+                    vertex(-flagWidthCountry/8, -flagHeight/8*2)
+                    vertex(-flagWidthCountry/20, -flagHeight/8*2+flagWidthCountry/60)
+                    
+                    vertex(-flagWidthCountry/16, -flagHeight/3)
+                    vertex(0, -flagHeight/3-flagWidthCountry/8)
+                    vertex(flagWidthCountry/16, -flagHeight/3)
+                    
+                    vertex(flagWidthCountry/20, -flagHeight/8*2+flagWidthCountry/60)
+                    vertex(flagWidthCountry/8, -flagHeight/8*2)
+                    vertex(flagWidthCountry/6, -flagHeight/8)
+                    vertex(flagWidthCountry/8, -flagHeight/30)
+                    
+                    vertex(flagWidthCountry/60, -flagHeight/20)
+                    vertex(flagWidthCountry/60, flagHeight/6)
+                    vertex(-flagWidthCountry/60, flagHeight/6)
+                    
+                endShape()
+                pop();
+            pop();
+            
+            // italy
+            push();
+            translate(0, 6*rowHeight)
+            var flagWidthCountry = flagWidth + 4/2
+            strokeWeight(0.5)
+            stroke(220)
+            rect(0, 0, flagWidthCountry, flagHeight)
+            noStroke()
+            fill(color('rgba(0,140,69, 0.4)'));
+            quad(0, 0, flagWidthCountry/3, 0, flagWidthCountry/3, flagHeight, 0, flagHeight)
+            fill(color('rgba(240,240,240, 0.4)'));
+            quad(flagWidthCountry/3, 0, flagWidthCountry*2/3, 0, flagWidthCountry*2/3, flagHeight, flagWidthCountry/3, flagHeight)
+            fill(color('rgba(205,33,42, 0.4)'));
+            quad(flagWidthCountry*2/3, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight, flagWidthCountry*2/3, flagHeight)
+            pop();
+            
+            // russia
+            push();
+            translate(0, 7*rowHeight)
+            var flagWidthCountry = flagWidth + 5/2
+            strokeWeight(0.5)
+            stroke(220)
+            rect(0, 0, flagWidthCountry, flagHeight)
+            noStroke()
+            fill(color('rgba(240,240,240, 0.4)'));
+            quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight/3, 0, flagHeight/3)
+            fill(color('rgba(0,57,166, 0.4)'));
+            quad(0, flagHeight/3, flagWidthCountry, flagHeight/3, flagWidthCountry, 2*flagHeight/3, 0, 2*flagHeight/3)
+            fill(color('rgba(213,43,30, 0.4)'));
+            quad(0, 2*flagHeight/3, flagWidthCountry, 2*flagHeight/3, flagWidthCountry, flagHeight, 0, flagHeight)
+            pop();
         
         pop();
     }
@@ -750,170 +741,170 @@ function draw() {
         translate(ends[i] + 30, startHeight + 0.16*rowHeight)
         shearX(-15);
         
-        // austria
-        push();
-        translate(0, 0*rowHeight)
-        var flagWidthCountry = flagWidth - 2/2
-        strokeWeight(0.5)
-        stroke(220)
-        rect(0, 0, flagWidthCountry, flagHeight)
-        noStroke()
-        fill(color('rgba(237,41,57, 0.4)'));
-        quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight/3, 0, flagHeight/3)
-        fill(color('rgba(240,240,240, 0.4)'));
-        quad(0, flagHeight/3, flagWidthCountry, flagHeight/3, flagWidthCountry, 2*flagHeight/3, 0, 2*flagHeight/3)
-        fill(color('rgba(237,41,57, 0.4)'));
-        quad(0, 2*flagHeight/3, flagWidthCountry, 2*flagHeight/3, flagWidthCountry, 3*flagHeight/3, 0, 3*flagHeight/3)
-        pop();
-        
-        // usa
-        push();
-        translate(0, 1*rowHeight)
-        var flagWidthCountry = flagWidth - 1/2
-        strokeWeight(0.5)
-        stroke(220)
-        rect(0, 0, flagWidthCountry, flagHeight)
-        noStroke()
-        fill(color('rgba(191, 10, 48, 0.4)'));
-        quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight, 0, flagHeight)
-        for(var k = 1; k < 12; k += 2) {
-            fill(color('rgba(240,240,240, 0.8)'));
-            quad(0, flagHeight/13*k, flagWidthCountry, flagHeight/13*k, flagWidthCountry, flagHeight/13*(k+1), 0, flagHeight/13*(k+1))
-        }
-        fill(color('rgba(255, 255, 255, 1)'));  // this and next line are just to cover background for blue to have opacity
-        quad(0, 0, flagWidthCountry*10.4/26, 0, flagWidthCountry*10.4/26, flagHeight*7/13, 0, flagHeight*7/13)
-        fill(color('rgba(0, 40, 104, 0.4)'));
-        quad(0, 0, flagWidthCountry*10.4/26, 0, flagWidthCountry*10.4/26, flagHeight*7/13, 0, flagHeight*7/13)
-        fill(color('rgba(240,240,240, 0.8)'));
-        for(let m = 0; m < 7; m++) {
-            for(let n = 0; n < 5; n++) {
-                x = (flagWidthCountry*10.4/26)/8 + (flagWidthCountry*10.4/26)/8 * m
-                y = (flagHeight*7/13)/6 + (flagHeight*7/13)/6 * n
-                ellipse(x, y, 1, 1)
-            }
-        }
-        pop();
-        
-        // germany
-        push();
-        translate(0, 2*rowHeight)
-        var flagWidthCountry = flagWidth + 0/2
-        strokeWeight(0.5)
-        stroke(220)
-        rect(0, 0, flagWidthCountry, flagHeight)
-        noStroke()
-        fill(color('rgba(0,0,0, 0.4)'));
-        quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight/3, 0, flagHeight/3)
-        fill(color('rgba(255,0,0, 0.4)'));
-        quad(0, flagHeight/3, flagWidthCountry, flagHeight/3, flagWidthCountry, 2*flagHeight/3, 0, 2*flagHeight/3)
-        fill(color('rgba(255,204,0, 0.4)'));
-        quad(0, 2*flagHeight/3, flagWidthCountry, 2*flagHeight/3, flagWidthCountry, 3*flagHeight/3, 0, 3*flagHeight/3)
-        pop();
-        
-        // italy
-        push();
-        translate(0, 3*rowHeight)
-        var flagWidthCountry = flagWidth + 1/2
-        strokeWeight(0.5)
-        stroke(220)
-        rect(0, 0, flagWidthCountry, flagHeight)
-        noStroke()
-        fill(color('rgba(0,140,69, 0.4)'));
-        quad(0, 0, flagWidthCountry/3, 0, flagWidthCountry/3, flagHeight, 0, flagHeight)
-        fill(color('rgba(240,240,240, 0.4)'));
-        quad(flagWidthCountry/3, 0, flagWidthCountry*2/3, 0, flagWidthCountry*2/3, flagHeight, flagWidthCountry/3, flagHeight)
-        fill(color('rgba(205,33,42, 0.4)'));
-        quad(flagWidthCountry*2/3, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight, flagWidthCountry*2/3, flagHeight)
-        pop();
-        
-        // germany
-        push();
-        translate(0, 4*rowHeight)
-        var flagWidthCountry = flagWidth + 2/2
-        strokeWeight(0.5)
-        stroke(220)
-        rect(0, 0, flagWidthCountry, flagHeight)
-        noStroke()
-        fill(color('rgba(0,0,0, 0.4)'));
-        quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight/3, 0, flagHeight/3)
-        fill(color('rgba(255,0,0, 0.4)'));
-        quad(0, flagHeight/3, flagWidthCountry, flagHeight/3, flagWidthCountry, 2*flagHeight/3, 0, 2*flagHeight/3)
-        fill(color('rgba(255,204,0, 0.4)'));
-        quad(0, 2*flagHeight/3, flagWidthCountry, 2*flagHeight/3, flagWidthCountry, flagHeight, 0, flagHeight)
-        pop();
-        
-        // canada
-        push();
-        translate(0, 5*rowHeight)
-        var flagWidthCountry = flagWidth + 3/2
-        strokeWeight(0.5)
-        stroke(220)
-        rect(0, 0, flagWidthCountry, flagHeight)
-        noStroke()
-        fill(color('rgba(255,0,0, 0.4)'));
-        quad(0, 0, flagWidthCountry/4, 0, flagWidthCountry/4, flagHeight, 0, flagHeight)
-        fill(color('rgba(240,240,240, 0.4)'));
-        quad(flagWidthCountry/4, 0, flagWidthCountry/4, 0, flagWidthCountry*3/4, flagHeight, flagWidthCountry*3/4, flagHeight)
-        fill(color('rgba(255,0,0, 0.4)'));
-        quad(flagWidthCountry*3/4, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight, flagWidthCountry*3/4, flagHeight)
-        fill(color('rgba(255,0,0, 0.4)'));
+            // austria
             push();
-            translate(flagWidthCountry/2, flagHeight*2/3)
-            beginShape()
-                vertex(-flagWidthCountry/60, -flagHeight/20)
-                vertex(-flagWidthCountry/8, 0)
-                vertex(-flagWidthCountry/6, -flagHeight/8)
-                vertex(-flagWidthCountry/8, -flagHeight/8*2)
-                vertex(-flagWidthCountry/20, -flagHeight/8*2+flagWidthCountry/60)
-                
-                vertex(-flagWidthCountry/16, -flagHeight/3)
-                vertex(0, -flagHeight/3-flagWidthCountry/8)
-                vertex(flagWidthCountry/16, -flagHeight/3)
-                
-                vertex(flagWidthCountry/20, -flagHeight/8*2+flagWidthCountry/60)
-                vertex(flagWidthCountry/8, -flagHeight/8*2)
-                vertex(flagWidthCountry/6, -flagHeight/8)
-                vertex(flagWidthCountry/8, -flagHeight/30)
-                
-                vertex(flagWidthCountry/60, -flagHeight/20)
-                vertex(flagWidthCountry/60, flagHeight/6)
-                vertex(-flagWidthCountry/60, flagHeight/6)
-                
-            endShape()
+            translate(0, 0*rowHeight)
+            var flagWidthCountry = flagWidth - 2/2
+            strokeWeight(0.5)
+            stroke(220)
+            rect(0, 0, flagWidthCountry, flagHeight)
+            noStroke()
+            fill(color('rgba(237,41,57, 0.4)'));
+            quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight/3, 0, flagHeight/3)
+            fill(color('rgba(240,240,240, 0.4)'));
+            quad(0, flagHeight/3, flagWidthCountry, flagHeight/3, flagWidthCountry, 2*flagHeight/3, 0, 2*flagHeight/3)
+            fill(color('rgba(237,41,57, 0.4)'));
+            quad(0, 2*flagHeight/3, flagWidthCountry, 2*flagHeight/3, flagWidthCountry, 3*flagHeight/3, 0, 3*flagHeight/3)
             pop();
-        pop();
-        
-        // italy
-        push();
-        translate(0, 6*rowHeight)
-        var flagWidthCountry = flagWidth + 4/2
-        strokeWeight(0.5)
-        stroke(220)
-        rect(0, 0, flagWidthCountry, flagHeight)
-        noStroke()
-        fill(color('rgba(0,140,69, 0.4)'));
-        quad(0, 0, flagWidthCountry/3, 0, flagWidthCountry/3, flagHeight, 0, flagHeight)
-        fill(color('rgba(240,240,240, 0.4)'));
-        quad(flagWidthCountry/3, 0, flagWidthCountry*2/3, 0, flagWidthCountry*2/3, flagHeight, flagWidthCountry/3, flagHeight)
-        fill(color('rgba(205,33,42, 0.4)'));
-        quad(flagWidthCountry*2/3, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight, flagWidthCountry*2/3, flagHeight)
-        pop();
-        
-        // russia
-        push();
-        translate(0, 7*rowHeight)
-        var flagWidthCountry = flagWidth + 5/2
-        strokeWeight(0.5)
-        stroke(220)
-        rect(0, 0, flagWidthCountry, flagHeight)
-        noStroke()
-        fill(color('rgba(240,240,240, 0.4)'));
-        quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight/3, 0, flagHeight/3)
-        fill(color('rgba(0,57,166, 0.4)'));
-        quad(0, flagHeight/3, flagWidthCountry, flagHeight/3, flagWidthCountry, 2*flagHeight/3, 0, 2*flagHeight/3)
-        fill(color('rgba(213,43,30, 0.4)'));
-        quad(0, 2*flagHeight/3, flagWidthCountry, 2*flagHeight/3, flagWidthCountry, flagHeight, 0, flagHeight)
-        pop();
+            
+            // usa
+            push();
+            translate(0, 1*rowHeight)
+            var flagWidthCountry = flagWidth - 1/2
+            strokeWeight(0.5)
+            stroke(220)
+            rect(0, 0, flagWidthCountry, flagHeight)
+            noStroke()
+            fill(color('rgba(191, 10, 48, 0.4)'));
+            quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight, 0, flagHeight)
+            for(var k = 1; k < 12; k += 2) {
+                fill(color('rgba(240,240,240, 0.8)'));
+                quad(0, flagHeight/13*k, flagWidthCountry, flagHeight/13*k, flagWidthCountry, flagHeight/13*(k+1), 0, flagHeight/13*(k+1))
+            }
+            fill(color('rgba(255, 255, 255, 1)'));  // this and next line are just to cover background for blue to have opacity
+            quad(0, 0, flagWidthCountry*10.4/26, 0, flagWidthCountry*10.4/26, flagHeight*7/13, 0, flagHeight*7/13)
+            fill(color('rgba(0, 40, 104, 0.4)'));
+            quad(0, 0, flagWidthCountry*10.4/26, 0, flagWidthCountry*10.4/26, flagHeight*7/13, 0, flagHeight*7/13)
+            fill(color('rgba(240,240,240, 0.8)'));
+            for(let m = 0; m < 7; m++) {
+                for(let n = 0; n < 5; n++) {
+                    x = (flagWidthCountry*10.4/26)/8 + (flagWidthCountry*10.4/26)/8 * m
+                    y = (flagHeight*7/13)/6 + (flagHeight*7/13)/6 * n
+                    ellipse(x, y, 1, 1)
+                }
+            }
+            pop();
+            
+            // germany
+            push();
+            translate(0, 2*rowHeight)
+            var flagWidthCountry = flagWidth + 0/2
+            strokeWeight(0.5)
+            stroke(220)
+            rect(0, 0, flagWidthCountry, flagHeight)
+            noStroke()
+            fill(color('rgba(0,0,0, 0.4)'));
+            quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight/3, 0, flagHeight/3)
+            fill(color('rgba(255,0,0, 0.4)'));
+            quad(0, flagHeight/3, flagWidthCountry, flagHeight/3, flagWidthCountry, 2*flagHeight/3, 0, 2*flagHeight/3)
+            fill(color('rgba(255,204,0, 0.4)'));
+            quad(0, 2*flagHeight/3, flagWidthCountry, 2*flagHeight/3, flagWidthCountry, 3*flagHeight/3, 0, 3*flagHeight/3)
+            pop();
+            
+            // italy
+            push();
+            translate(0, 3*rowHeight)
+            var flagWidthCountry = flagWidth + 1/2
+            strokeWeight(0.5)
+            stroke(220)
+            rect(0, 0, flagWidthCountry, flagHeight)
+            noStroke()
+            fill(color('rgba(0,140,69, 0.4)'));
+            quad(0, 0, flagWidthCountry/3, 0, flagWidthCountry/3, flagHeight, 0, flagHeight)
+            fill(color('rgba(240,240,240, 0.4)'));
+            quad(flagWidthCountry/3, 0, flagWidthCountry*2/3, 0, flagWidthCountry*2/3, flagHeight, flagWidthCountry/3, flagHeight)
+            fill(color('rgba(205,33,42, 0.4)'));
+            quad(flagWidthCountry*2/3, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight, flagWidthCountry*2/3, flagHeight)
+            pop();
+            
+            // germany
+            push();
+            translate(0, 4*rowHeight)
+            var flagWidthCountry = flagWidth + 2/2
+            strokeWeight(0.5)
+            stroke(220)
+            rect(0, 0, flagWidthCountry, flagHeight)
+            noStroke()
+            fill(color('rgba(0,0,0, 0.4)'));
+            quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight/3, 0, flagHeight/3)
+            fill(color('rgba(255,0,0, 0.4)'));
+            quad(0, flagHeight/3, flagWidthCountry, flagHeight/3, flagWidthCountry, 2*flagHeight/3, 0, 2*flagHeight/3)
+            fill(color('rgba(255,204,0, 0.4)'));
+            quad(0, 2*flagHeight/3, flagWidthCountry, 2*flagHeight/3, flagWidthCountry, flagHeight, 0, flagHeight)
+            pop();
+            
+            // canada
+            push();
+            translate(0, 5*rowHeight)
+            var flagWidthCountry = flagWidth + 3/2
+            strokeWeight(0.5)
+            stroke(220)
+            rect(0, 0, flagWidthCountry, flagHeight)
+            noStroke()
+            fill(color('rgba(255,0,0, 0.4)'));
+            quad(0, 0, flagWidthCountry/4, 0, flagWidthCountry/4, flagHeight, 0, flagHeight)
+            fill(color('rgba(240,240,240, 0.4)'));
+            quad(flagWidthCountry/4, 0, flagWidthCountry/4, 0, flagWidthCountry*3/4, flagHeight, flagWidthCountry*3/4, flagHeight)
+            fill(color('rgba(255,0,0, 0.4)'));
+            quad(flagWidthCountry*3/4, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight, flagWidthCountry*3/4, flagHeight)
+            fill(color('rgba(255,0,0, 0.4)'));
+                push();
+                translate(flagWidthCountry/2, flagHeight*2/3)
+                beginShape()
+                    vertex(-flagWidthCountry/60, -flagHeight/20)
+                    vertex(-flagWidthCountry/8, 0)
+                    vertex(-flagWidthCountry/6, -flagHeight/8)
+                    vertex(-flagWidthCountry/8, -flagHeight/8*2)
+                    vertex(-flagWidthCountry/20, -flagHeight/8*2+flagWidthCountry/60)
+                    
+                    vertex(-flagWidthCountry/16, -flagHeight/3)
+                    vertex(0, -flagHeight/3-flagWidthCountry/8)
+                    vertex(flagWidthCountry/16, -flagHeight/3)
+                    
+                    vertex(flagWidthCountry/20, -flagHeight/8*2+flagWidthCountry/60)
+                    vertex(flagWidthCountry/8, -flagHeight/8*2)
+                    vertex(flagWidthCountry/6, -flagHeight/8)
+                    vertex(flagWidthCountry/8, -flagHeight/30)
+                    
+                    vertex(flagWidthCountry/60, -flagHeight/20)
+                    vertex(flagWidthCountry/60, flagHeight/6)
+                    vertex(-flagWidthCountry/60, flagHeight/6)
+                    
+                endShape()
+                pop();
+            pop();
+            
+            // italy
+            push();
+            translate(0, 6*rowHeight)
+            var flagWidthCountry = flagWidth + 4/2
+            strokeWeight(0.5)
+            stroke(220)
+            rect(0, 0, flagWidthCountry, flagHeight)
+            noStroke()
+            fill(color('rgba(0,140,69, 0.4)'));
+            quad(0, 0, flagWidthCountry/3, 0, flagWidthCountry/3, flagHeight, 0, flagHeight)
+            fill(color('rgba(240,240,240, 0.4)'));
+            quad(flagWidthCountry/3, 0, flagWidthCountry*2/3, 0, flagWidthCountry*2/3, flagHeight, flagWidthCountry/3, flagHeight)
+            fill(color('rgba(205,33,42, 0.4)'));
+            quad(flagWidthCountry*2/3, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight, flagWidthCountry*2/3, flagHeight)
+            pop();
+            
+            // russia
+            push();
+            translate(0, 7*rowHeight)
+            var flagWidthCountry = flagWidth + 5/2
+            strokeWeight(0.5)
+            stroke(220)
+            rect(0, 0, flagWidthCountry, flagHeight)
+            noStroke()
+            fill(color('rgba(240,240,240, 0.4)'));
+            quad(0, 0, flagWidthCountry, 0, flagWidthCountry, flagHeight/3, 0, flagHeight/3)
+            fill(color('rgba(0,57,166, 0.4)'));
+            quad(0, flagHeight/3, flagWidthCountry, flagHeight/3, flagWidthCountry, 2*flagHeight/3, 0, 2*flagHeight/3)
+            fill(color('rgba(213,43,30, 0.4)'));
+            quad(0, 2*flagHeight/3, flagWidthCountry, 2*flagHeight/3, flagWidthCountry, flagHeight, 0, flagHeight)
+            pop();
         
         pop();
     }
@@ -950,13 +941,6 @@ function draw() {
             fill(color('rgba(240,240,240, 0.5)'));
             ellipse(x, y, 1, 1)
         }
-        
-    }
-
-
-
-    //////////////////// thin ice patch and spray ////////////////////
-    for(i = 0; i < data.length; i++) {
         
     }
     
