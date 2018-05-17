@@ -6,6 +6,9 @@ var beginnings = [];
 var ends = [];
 var splits = [];
 var splitFlash = [];
+var startFlash = [];
+var endLineFlash = [];
+var endFlash = [];
 var names = [];
 var data = [];
 var images = [];
@@ -20,6 +23,7 @@ var splitMarkers = [];
 var runs = [];
 var runsText = [];
 var runsTextPosition = [];
+var runsNumber = [];
 var startLineThickness;
 var stopLineThickness;
 var splitLineThickness;
@@ -54,7 +58,7 @@ function setup() {
     beginnings = [beginning1, beginning2, beginning3, beginning4]
     ends = [end1, end2, end3, end4]
     splits = [splitstart, splitint1, splitint2, splitint3]
-    splitFlash = [173, 380, 635, 973, 1180, 1435, 1783, 1990, 2240, 2583, 2790, 3045]
+    splitFlash = [170, 378, 635, 823, 1030, 1285, 1480, 1685, 1940, 2133, 2340, 2595]
     splitFlash = splitFlash.map(function(element) { return element-(80-distanceToStart) })
     startFlash = [0, 859, 1718, 2578]
     endLineFlash = [572, 1433, 2293, 3154]
@@ -95,6 +99,7 @@ function draw() {
     if(!run) { frameRate(0) }
     if(run) { frameRate(60) }
     
+    // potnetial add descriptive text
     // scale(1,1)
     // textFont("AvenirNextCondensed-Medium");
     // textStyle(NORMAL);
@@ -102,15 +107,33 @@ function draw() {
     // fill(50);
     // textSize(14);
 
-    scale(3.1, 1)
-    if(frameCount > 100 && frameCount < 3200) { translate((-frameCount+100) * 2, 0) }
-    if(frameCount >= 3200) { translate((-3200+100) * 2, 0) }
-    // if(frameCount > 150 && frameCount <= 600) { translate((-frameCount+150) * 2, 0) }
-    // if(frameCount > 600) { translate(-900, 0) }
-    // if(frameCount > 900 && frameCount <= 1500) { translate((-frameCount+750) * 2, 0) }
-    // else if(frameCount > 600 && frameCount < 700) { translate(600, 0) }
-    // translate(-frameCount * 1.7  , 0)
 
+    //////////////////// far scale and translate speed ////////////////////
+    scale(3.15, 1)
+    var speed = 2.4
+    var startFirstMove = startFlash[0] + 100
+    var endFirstMove = endLineFlash[0] + 85
+    var startSecondMove = startFlash[1] + 30
+    var endSecondMove = endLineFlash[1] + 80
+    var startThirdMove = startFlash[2] + 30
+    var endThirdMove = endLineFlash[2] + 85
+    var startFourthMove = startFlash[3] + 30
+    var endFourthMove = endLineFlash[3] + 30
+    // var startFifthMove = startFlash[4] + 30
+    // var endFifthMove = endLineFlash[4] + 80
+    var shiftMove = endFirstMove-startFirstMove
+    
+    if(frameCount > startFirstMove && frameCount < endFirstMove) { translate(speed*(-frameCount + startFirstMove), 0) }
+    if(frameCount >= endFirstMove && frameCount < startSecondMove) { translate(speed*(-shiftMove), 0) }
+    if(frameCount >= startSecondMove && frameCount < endSecondMove) { translate(speed*(-frameCount - shiftMove + startSecondMove), 0) }
+    if(frameCount >= endSecondMove && frameCount < startThirdMove) { translate(speed*(-shiftMove - (endSecondMove-startSecondMove)), 0) }
+    if(frameCount >= startThirdMove && frameCount < endThirdMove) { translate(speed*(-frameCount - shiftMove + startThirdMove - (endSecondMove-startSecondMove)), 0) }
+    if(frameCount >= endThirdMove && frameCount < startFourthMove) { translate(speed*(-shiftMove - (endSecondMove-startSecondMove) - (endThirdMove-startThirdMove)), 0) }
+    if(frameCount >= startFourthMove && frameCount < endFourthMove) { translate(speed*(-frameCount - shiftMove + startFourthMove - (endSecondMove-startSecondMove) - (endThirdMove-startThirdMove)), 0) }
+    // if(frameCount >= endFourthMove && frameCount < startFifthMove) { translate(speed*(-shiftMove - (endSecondMove-startSecondMove) - (endThirdMove-startThirdMove) - (endFourthMove-startFourthMove)), 0) }
+    // if(frameCount >= startFifthMove && frameCount < endFifthMove) { translate(speed*(-frameCount - shiftMove + startFifthMove - (endSecondMove-startSecondMove) - (endThirdMove-startThirdMove) - (endFourthMove-startFourthMove)), 0) }
+    if(frameCount >= endFourthMove) { translate(speed*(-shiftMove - (endSecondMove-startSecondMove) - (endThirdMove-startThirdMove) - (endFourthMove-startFourthMove)), 0) }
+    
 
     //////////////////// far wall ////////////////////
     for (i = 0; i < 4; i++) {
