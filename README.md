@@ -1,11 +1,11 @@
 # On and Beyond the Edge
 ### Visual Stories of Winning Margins in Elite Sports
 
-### Julian H. Lange
+#### Julian H. Lange
 
 ![preview.png](preview.png)
 
-## Abstract
+### Abstract
 Olympic Games and World Championships showcase the world’s elite athletes. While medalists earn a significant
 premium over fourth place finishers, the margins of victory have become vanishingly small. To surmount
 these margins, athletes are continuously acquiring sources of advantage, from training to nutrition and
@@ -17,9 +17,8 @@ story from the swimming pool, where advances in swimsuit design effectively chan
 sport. Finally, users can re-live the 2018 Winter Olympic Games men's singles luge event, which was won by
 0.028 seconds, via an animation that displays the top eight athletes head-to-head.
 
-### Features
 
-##### Visualization 1
+### Visualization 1
 For each sport and discipline, competition data were acquired from the PyeongChang 2018 website of the
 International Olympic Committee. I downloaded PDFs, converted them to CSV-formatted plain text
 using an online tool, and scraped and tabulated relevant data using R version 3.3.3. Final tables were
@@ -37,10 +36,11 @@ either all competitors except the gold medalist or all non-medalists––are im
 0.05%, 0.1%, 0.2%, 0.5%, or 1%. Users select the subset and increment with radio buttons. The data underlying
 the transformed values were calculated in R. The resulting visualization displays how the
 event’s standings would have changed under the userselected scenario. The visualization was implemented
-using JavaScript and the D3.js library.
+using JavaScript and the D3.js library.<br>
 ![assets/hypothetical.png](assets/hypothetical.png)
 
-##### Visualization 2
+
+### Visualization 2
 Competitive swimsuit development underwent major changes in the first decade of the 21st century. The
 most egregious example led to drastic rule changes that banned a synthetic material that, in 2009, had felled
 many prior world records. This visualization conveys how swim times in 2009 were a function of swimsuit materials.<br>
@@ -59,10 +59,11 @@ improved markedly in 2009. After full-body suits and polyurethane materials were
 times were much slower in 2011. Between 2011 and 2017, the rates of improvement in swim times were
 more consistent with those of the early 2000s. The visualization shows clearly that, irrespective of gender, distance,
 and stroke, winning swim times and median swim times improved between 2007 and 2009, then
-slowed down between 2009 and 2011.
+slowed down between 2009 and 2011.<br>
 ![assets/swimming.png](assets/swimming.png)
 
-##### Visualization 3
+
+### Visualization 3
 Luge is a winter sliding sport in which one athlete, or a two-person team of athletes, lies face up on a racing sled
 and steers the sled down an ice track. It has been part of the Winter Olympic program since 1964. The highest
 level of international competition is governed by the Fédération Internationale de Luge de Course (FIL) and
