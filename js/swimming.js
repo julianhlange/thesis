@@ -481,7 +481,7 @@ function drawSwimGraph() {
             .append('svg:tspan')
             .attr('x', width + 50)
             .attr('dy', 20)
-            .text("a moderate rates.")
+            .text("moderate rates.")
             .append('svg:tspan')
             .attr('x', width + 50)
             .attr('dy', 55)
