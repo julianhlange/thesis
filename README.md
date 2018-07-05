@@ -94,7 +94,7 @@ of constant acceleration (or deceleration) in any interval.
 
 
 ### Credits
-Created by [Julian H. Lange](www.julianhlange.com) with data and assets from the following sources:
+Created by [Julian H. Lange](https://www.julianhlange.com) with data and assets from the following sources:
 
 * Data for the 2018 Winter Olympic Games were retrieved from the [PyeongChang 2018](https://www.pyeongchang2018.com) website.
 * World Championships swimming results were obtained from [FINA](https://www.fina.org) and [OMEGA Timing](http://www.omegatiming.com/index.htm), the official timekeeper of FINA races.
